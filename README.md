@@ -22,7 +22,7 @@ It was born to serve the realm — *your* realm.
 
 ### 📥 Download
 
-Venture to the [Releases](https://github.com/yourusername/runegard/releases) page and claim the latest `.exe`. No dragons block your path — only the quiet thrill of preparation.
+Venture to the [Releases](https://github.com/DrakkarWolf/runegard/releases) page and claim the latest `.exe`. No dragons block your path — only the quiet thrill of preparation.
 
 ### 🧭 First Time Setup
 
@@ -32,4 +32,4 @@ Then shape it to your will from within the settings.
 ## ⚖️ License of the Clans
 MIT — You are free to wield Runegard, modify it, and share it — but honor the creator as you would a chieftain.
 
-See [LICENSE](https://github.com/yourusername/runegard/blob/main/LICENSE) for the words inscribed.
+See [LICENSE](https://github.com/DrakkarWolf/Runegard/blob/main/LICENSE) for the words inscribed.

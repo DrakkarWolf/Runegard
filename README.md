@@ -29,16 +29,7 @@ Venture to the [Releases](https://github.com/DrakkarWolf/runegard/releases) page
 Run it once. Let it create its **rune-scroll** (`runegard_config.json`) beside the executable.  
 Then shape it to your will from within the settings.
 
-### 💬 Sending a Message via Netcat (Linux / Unix)
-
-Once your guardian watches over your realm, you may call to it across the network. Use this command, 
-replacing the placeholders with your IP and port:
-
-```
-echo "Your message here" | nc <IP_ADDRESS> <PORT_NUMBER>
-```
-
-### 💻 Sending a Message from Windows
+### 💬 Sending a Message via Netcat
 
 When your sentinel keeps watch over the realm, call upon it across the winds of the network. Speak these 
 runes, replacing the placeholders with the IP and port of the guardian’s domain:

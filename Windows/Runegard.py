@@ -13,7 +13,7 @@ from PIL import Image
 from notifypy import Notify
 import ctypes
 
-CONFIG_FILE = os.path.join(os.getenv('APPDATA'), 'Runeguard', 'listener_config.json')
+CONFIG_FILE = os.path.join(os.getenv('APPDATA'), 'runegard', 'listener_config.json')
 
 # Make sure the directory exists before saving
 os.makedirs(os.path.dirname(CONFIG_FILE), exist_ok=True)
@@ -50,10 +50,10 @@ def get_icon_image():
     icon_path = resource_path('raven.png')
     return Image.open(icon_path)
 
-class RuneguardApp:
+class runegardApp:
     def __init__(self, root):
         self.root = root
-        self.root.title("Runeguard Settings")
+        self.root.title("Runegard Settings")
         self.root.protocol("WM_DELETE_WINDOW", self.hide_window)
         self.root.geometry("300x225")
 
@@ -80,9 +80,9 @@ class RuneguardApp:
         ttk.Button(self.root, text="Exit", command=self.exit_app).pack(pady=5)
 
         self.notifier = Notify()
-        self.notifier.application_name = "Runeguard"
+        self.notifier.application_name = "Runegard"
         self.notifier.icon = resource_path("raven.png")
-        self.icon = pystray.Icon("runeguard", get_icon_image(), "Runeguard", self.create_menu())
+        self.icon = pystray.Icon("runegard", get_icon_image(), "Runegard", self.create_menu())
         self.icon_thread = None
         self.listener_thread = None
         self.running = True
@@ -113,12 +113,12 @@ class RuneguardApp:
 
     def is_startup_enabled(self):
         startup = winshell.startup()
-        shortcut_path = os.path.join(startup, "RuneguardApp.lnk")
+        shortcut_path = os.path.join(startup, "RunegardApp.lnk")
         return os.path.exists(shortcut_path)
 
     def create_startup_shortcut(self):
         startup = winshell.startup()
-        shortcut_path = os.path.join(startup, "RuneguardApp.lnk")
+        shortcut_path = os.path.join(startup, "RunegardApp.lnk")
         target = sys.executable  # Path to python.exe or your .exe file
         script_path = os.path.abspath(sys.argv[0])  # This script's full path
 
@@ -127,12 +127,12 @@ class RuneguardApp:
             shortcut.path = target
             shortcut.arguments = f'"{script_path}"'
             shortcut.working_directory = os.path.dirname(script_path)
-            shortcut.description = "Runeguard Auto Start"
+            shortcut.description = "runegard Auto Start"
         print("✅ Startup shortcut created.")
 
     def remove_startup_shortcut(self):
         startup = winshell.startup()
-        shortcut_path = os.path.join(startup, "RuneguardApp.lnk")
+        shortcut_path = os.path.join(startup, "runegardApp.lnk")
         if os.path.exists(shortcut_path):
             os.remove(shortcut_path)
             print("🗑️ Startup shortcut removed.")
@@ -159,7 +159,7 @@ class RuneguardApp:
             self.remove_startup_shortcut()
 
         save_config(self.config)
-        messagebox.showinfo("Runeguard", "Settings saved.")
+        messagebox.showinfo("runegard", "Settings saved.")
 
     def exit_app(self, icon=None, item=None):
         self.running = False
@@ -183,7 +183,7 @@ class RuneguardApp:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.bind((host, port))
             s.listen()
-            print("⚔️ Runeguard listening for messages...")
+            print("⚔️ runegard listening for messages...")
 
             while self.running:
                 try:
@@ -197,7 +197,7 @@ class RuneguardApp:
                     message = conn.recv(1024).decode().strip()
                     print(f"📜 Message received: {message}")
 
-                    self.notifier.title = "Homelab Message"
+                    self.notifier.title = "Runegard"
                     self.notifier.message = message
                     self.notifier.send()
 
@@ -213,7 +213,7 @@ class RuneguardApp:
 
         net_ready = self.wait_for_network()
         if not net_ready:
-            messagebox.showwarning("Runeguard", "Network not detected after timeout. Starting anyway.")
+            messagebox.showwarning("runegard", "Network not detected after timeout. Starting anyway.")
 
         self.icon_thread = threading.Thread(target=self.run_tray_icon, daemon=True)
         self.icon_thread.start()
@@ -226,7 +226,7 @@ def main():
     icon_path = resource_path('raven.png')
     icon_image = PhotoImage(file=icon_path)
     root.iconphoto(False, icon_image)
-    app = RuneguardApp(root)
+    app = runegardApp(root)
     app.start()
     root.mainloop()
 

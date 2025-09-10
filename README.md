@@ -22,7 +22,7 @@ It was born to serve the realm — *your* realm.
 
 ### 📥 Download
 
-Venture to the [Releases](https://github.com/DrakkarWolf/runegard/releases) page and claim the latest `.exe`. No dragons block your path — only the quiet thrill of preparation.
+Venture to the [Releases](https://github.com/DrakkarWolf/runegard/releases) page and claim the latest version for your OS. No dragons block your path — only the quiet thrill of preparation.
 
 ### 🧭 First Time Setup
 
@@ -34,11 +34,17 @@ Then shape it to your will from within the settings.
 When your sentinel keeps watch over the realm, call upon it across the winds of the network. Speak these 
 runes, replacing the placeholders with the IP and port of the guardian’s domain:
 
+**On Windows:**
 ```
 echo "Your message here" | nc.exe <IP_ADDRESS> <PORT_NUMBER>
 ```
-This invocation carries across the lands of Linux, Unix, and the Windows realms alike.<br>
-Ensure `nc.exe` (Netcat) is available in your PATH, and the raven shall hear your call from the land of Windows as well.<br><br>
+Ensure nc.exe (Netcat) is present in your PATH.<br>
+
+**On Linux:**
+```
+echo "Your message here" | nc <IP_ADDRESS> <PORT_NUMBER>
+```
+Make certain that netcat (nc) is installed upon your system<br><br>
 
 The raven listens. Speak clearly, and it shall carry your words.
 
